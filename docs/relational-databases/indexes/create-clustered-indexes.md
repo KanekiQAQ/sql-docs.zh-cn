@@ -70,7 +70,7 @@ ms.locfileid: "68024988"
   
      对大型表创建索引的首选方法是先创建聚集索引，然后创建任何非聚集索引。 在对现有表创建索引时，请考虑将 ONLINE 选项设置为 ON。 如果设置为 ON，则不会持有长期表锁。 这使对基础表的查询或更新可以继续进行。 有关详细信息，请参阅 [Perform Index Operations Online](../../relational-databases/indexes/perform-index-operations-online.md)。  
   
--   聚集索引的索引键不能包含在 ROW_OVERFLOW_DATA 分配单元中具有现有数据的 **varcharr** 列。 如果对 **varchar** 列创建了聚集索引，并且 IN_ROW_DATA 分配单元中存在现有数据，则对该列执行的将数据推送到行外的后续插入或更新操作将会失败。 若要获得有关可能包含行溢出数据的表的信息，请使用 [sys.dm_db_index_physical_stats (Transact-SQL) ](../../relational-databases/system-dynamic-management-views/sys-dm-db-index-physical-stats-transact-sql.md) 动态管理函数。  
+-   聚集索引的索引键不能包含在 ROW_OVERFLOW_DATA 分配单元中具有现有数据的 **varchar** 列。 如果对 **varchar** 列创建了聚集索引，并且 IN_ROW_DATA 分配单元中存在现有数据，则对该列执行的将数据推送到行外的后续插入或更新操作将会失败。 若要获得有关可能包含行溢出数据的表的信息，请使用 [sys.dm_db_index_physical_stats (Transact-SQL) ](../../relational-databases/system-dynamic-management-views/sys-dm-db-index-physical-stats-transact-sql.md) 动态管理函数。  
   
 ###  <a name="Security"></a> Security  
   
